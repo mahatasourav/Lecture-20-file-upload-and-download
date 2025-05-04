@@ -18,6 +18,12 @@ const { default: mongoose } = require("mongoose");
 const DB_PATH = process.env.MONGODB_URI || "mongodb://localhost:27017/yourDB";
 //telling that we are using ejs in views
 app.use(express.static(path.join(rootdir, "public")));
+app.use((req, res, next) => {
+  if (req.url.endsWith(".css")) {
+    res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+  }
+  next();
+});
 
 app.set("view engine", "ejs");
 app.set("views", "views");
