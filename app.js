@@ -9,6 +9,7 @@ const { hostRouter } = require("./Routes/hostRouter");
 const { authRouter } = require("./Routes/authRouter");
 const path = require("path");
 const rootdir = require("./utils/pathUtils");
+
 const app = express();
 const errorController = require("./Controllers/Error");
 require("dotenv").config();
@@ -16,6 +17,8 @@ require("dotenv").config();
 const { default: mongoose } = require("mongoose");
 const DB_PATH = process.env.MONGODB_URI || "mongodb://localhost:27017/yourDB";
 //telling that we are using ejs in views
+app.use(express.static(path.join(rootdir, "public")));
+
 app.set("view engine", "ejs");
 app.set("views", "views");
 const store = new mongoDBStore({
