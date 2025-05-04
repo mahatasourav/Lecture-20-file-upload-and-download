@@ -11,11 +11,10 @@ const path = require("path");
 const rootdir = require("./utils/pathUtils");
 const app = express();
 const errorController = require("./Controllers/Error");
+require("dotenv").config();
 
 const { default: mongoose } = require("mongoose");
-const DB_PATH =
-  "mongodb+srv://mahatasourav35:Asit%401234@clustersourav.8rpne8h.mongodb.net/airbnb?retryWrites=true&w=majority&appName=ClusterSourav";
-
+const DB_PATH = process.env.MONGODB_URI || "mongodb://localhost:27017/yourDB";
 //telling that we are using ejs in views
 app.set("view engine", "ejs");
 app.set("views", "views");
@@ -53,7 +52,7 @@ app.use(express.static(path.join(rootdir, "public")));
 
 app.use(errorController.Error404);
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 mongoose
   .connect(DB_PATH)
