@@ -5,7 +5,7 @@ const includes = require("mongoose").includes;
 
 exports.getHome = (req, res, next) => {
   Home.find().then((homeRegistred) => {
-    res.render("store/home-list", {
+    res.render("store/home-lists", {
       homeRegistred: homeRegistred,
       pageTitle: "Airbnb Home",
       currentPage: "HomeList",
