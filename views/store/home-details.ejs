@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("../partials/head") %>
+  </head>
+  <body>
+    <%- include("../partials/nav") %>
+    <main>
+      <h1  class="text-3xl font-bold text-center text-green-600 mb-6">Details of Home  <%= home.homename %>:</h1></main> 
+      <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden ml-40 mr-40 pl-10">
+        <!-- Image -->
+        
+        <div class="flex justify-start gap-32 mt-50">
+          <img
+          src="<%= home.image ? home.image : 'https://i.pinimg.com/736x/f0/fc/17/f0fc17618d45910665e1efb85c1c0a72.jpg' %>"
+          alt="<%= home.homename %>"
+          class="w-[400px] h-[400px] object-cover"
+        />
+        <div class="flex flex-col pt-12 gap-5 ">
+          <div class="flex justify-between items-center ml-50px">
+            <h2 class="text-2xl font-bold text-gray-800">
+              <%= home.homename %>
+            </h2>
+            <span class="text-yellow-500 font-semibold text-lg">
+              ⭐ <%= home.Rating %> / 5
+            </span>
+          </div>
+
+          <p class="text-sm text-gray-500">
+            📍 <%= home.location %>
+          </p>
+
+          <p class="text-lg text-gray-700">
+            💰 Rs <span class="font-semibold"><%= home.price %></span> per night
+          </p>
+          <!-- Buttons -->
+          <div class="mt-4 flex flex-col sm:flex-row gap-4">
+            <a
+              href="/book/<%= home._id || home._id %>"
+              class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition"
+            >
+              Book Now
+            </a>
+
+            <%- include("../partials/favourite") %>
+          </div>
+        </div>
+        </div>
+
+        <!-- Content -->
+        <div class="p-6 space-y-4">
+          
+
+          <!-- Description (You can store description in home.description) -->
+          <div>
+            <h3 class="text-lg font-semibold mb-1">Description</h3>
+            <p class="text-gray-600">
+              <%= home.description || "This cozy stay is perfect for your vacation getaway. Includes free Wi-Fi, AC, and 24/7 support. You'll enjoy a clean and relaxing environment with great nearby attractions!" %>
+            </p>
+          </div>
+
+          <!-- Amenities -->
+          <div>
+            <h3 class="text-lg font-semibold mb-1">Amenities</h3>
+            <ul class="list-disc list-inside text-gray-600">
+              <li>Free Wi-Fi</li>
+              <li>Air Conditioning</li>
+              <li>Fully-equipped Kitchen</li>
+              <li>24/7 Check-in</li>
+              <li>TV & Netflix</li>
+            </ul>
+          </div>
+
+          
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

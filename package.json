@@ -1,0 +1,36 @@
+{
+  "dependencies": {
+    "@tailwindcss/cli": "^4.0.17",
+    "bcryptjs": "^3.0.2",
+    "body-parser": "^1.20.3",
+    "connect-mongodb-session": "^5.0.0",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-router": "^0.0.1",
+    "express-session": "^1.18.1",
+    "express-validator": "^7.2.1",
+    "mongodb": "^6.15.0",
+    "mongoose": "^8.13.2",
+    "mysql2": "^3.14.0"
+  },
+  "name": "lecture-10-airbnb",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^9.1.2",
+    "nodemon": "^3.1.9",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.3.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"npm:server\" \"npm:tailwind\"",
+    "server": "nodemon app.js",
+    "tailwind": "npx tailwindcss -i ./views/input.css -o ./public/output.css --watch",
+    "tailwind:init": "tailwindcss init"
+  },
+  "author": "Sourav",
+  "license": "ISC",
+  "description": ""
+}
