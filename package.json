@@ -29,7 +29,8 @@
     "start": "concurrently \"npm:server\" \"npm:tailwind\"",
     "server": "nodemon app.js",
     "tailwind": "npx tailwindcss -i ./views/input.css -o ./public/output.css --watch",
-    "tailwind:init": "tailwindcss init"
+    "tailwind:init": "tailwindcss init",
+    "build:css": "tailwindcss -i ./views/input.css -o ./public/output.css --minify"
   },
   "author": "Sourav",
   "license": "ISC",
